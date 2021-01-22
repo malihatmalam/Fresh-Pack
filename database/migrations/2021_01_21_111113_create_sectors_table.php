@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableBook extends Migration
+class CreateSectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateTableBook extends Migration
      */
     public function up()
     {
-        Schema::create('book', function (Blueprint $table) {
+        Schema::create('sectors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul');
-            $table->string('penulis');
-            $table->bigInteger('harga');
-            $table->date('tgl_terbit');
+            // Atribute kode sektor
+            $table->string('code', 3);
+            // Atribute nama
+            $table->string('name');
+            // Atribute yang menghubungkan dengan tabel kota
+            $table->unsignedBigInteger('city_id');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateTableBook extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_book');
+        Schema::dropIfExists('sectors');
     }
 }
