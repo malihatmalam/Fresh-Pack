@@ -16,7 +16,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 
+        'email', 
+        'password',
+        'status', 
+        'sector_id',
     ];
 
     /**
@@ -36,4 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Sector - User (One to Many)
+    public function sector()
+    {
+        return $this->belongsTo(Sector::class);
+    }
 }
