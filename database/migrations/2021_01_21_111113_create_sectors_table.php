@@ -19,8 +19,6 @@ class CreateSectorsTable extends Migration
             $table->string('code', 3);
             // Atribute nama
             $table->string('name');
-            // Atribute yang menghubungkan dengan tabel kota
-            $table->unsignedBigInteger('city_id');
             $table->timestamps();
         });
     }
