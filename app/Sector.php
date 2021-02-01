@@ -25,11 +25,11 @@ class Sector extends Model
     {
         return $this->hasMany(User::class);
     }
-
-    // Sector - City (One to Many)
-    public function city()
+    
+    // Sector - Sector Detail (One to Many)
+    public function sector_detail()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(Sector_detail::class);
     }
 
     // Sector - Courir (One to Many)
